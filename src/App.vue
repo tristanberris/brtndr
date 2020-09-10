@@ -14,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   color: white;
   background-color: #212529;
-  
+  height: 100vh;
   
 }
 

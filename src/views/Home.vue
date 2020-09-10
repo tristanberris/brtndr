@@ -1,10 +1,10 @@
 <template>
-  <div class="row justify-content-center content">
+  <div class="row justify-content-center content pb-5">
       <div class="col-9">
         <ingredients></ingredients>
     </div>
     <div class="row  content">
-      <div class="col-9">
+      <div class="col-12">
         <drinks></drinks>
 
       </div>
@@ -31,5 +31,6 @@ export default {
 .content {
   background-color: #2a2e32;
   border-radius: 2%;
+  
 }
 </style>
