@@ -1,19 +1,24 @@
-# bartender
+# Bartender
 
-## Project setup
-```
-npm install
-```
+Welcome to the Bartender application!
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This application is used for entering one's cocktail ingredients, and recieving a list of possible cocktails to be made from the user's ingredients. 
+This list will be a well-formatted, mobile-friendly page.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Requirements
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Visualization
+
+- A mobile friendly gallery of cocktail 'cards':
+  - Photo of cocktail
+  - Short description of cocktail
+- Cards show up automatically when new ingredient is entered
+
+### Functionality
+
+- Users 'search' for a prepopulated list of ingredients
+  - When user starts entering ingredient, a list of possible ingredients pops up
+    - when ingredient is chosen, a list of ingredients appears above drink cards
+
+- Search will show ALL possible drinks
+  - ex. if user inputs 6 ingredients, drink list will also include 3 ingredient drinks.
