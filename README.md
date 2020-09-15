@@ -22,3 +22,11 @@ This list will be a well-formatted, mobile-friendly page.
 
 - Search will show ALL possible drinks
   - ex. if user inputs 6 ingredients, drink list will also include 3 ingredient drinks.
+
+## To-Do List
+
+- Add mobile-friendly view
+- Add dynamic bootstrap cards based upon size of screen.
+  - Full-size: 5 cards per row
+  - Mid-size: 4 cards per row
+  - Phone-size: 3 cards per row
