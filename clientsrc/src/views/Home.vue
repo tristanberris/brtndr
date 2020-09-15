@@ -20,6 +20,15 @@ import drinks from "../components/drinks.vue";
 
 export default {
   name: "Home",
+  mounted(){
+    this.$store.dispatch("getDrinks")
+    
+  },
+  computed:{
+    drinks() {
+      return this.$store.state.drinks;
+    }
+  },
   components: {
     HelloWorld,
     ingredients,
