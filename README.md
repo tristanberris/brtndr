@@ -15,18 +15,24 @@ This list will be a well-formatted, mobile-friendly page.
 - Cards show up automatically when new ingredient is entered
 
 ### Functionality
-
 - Users 'search' for a prepopulated list of ingredients
   - When user starts entering ingredient, a list of possible ingredients pops up
     - when ingredient is chosen, a list of ingredients appears above drink cards
-
 - Search will show ALL possible drinks
   - ex. if user inputs 6 ingredients, drink list will also include 3 ingredient drinks.
 
 ## To-Do List
 
+### Front-end
 - Add mobile-friendly view
 - Add dynamic bootstrap cards based upon size of screen.
   - Full-size: 5 cards per row
   - Mid-size: 4 cards per row
   - Phone-size: 3 cards per row
+
+### Back-end
+- Learn how to store back-end data as an array
+  - How I intend to store the ingredients for each drink
+
+- Learn how to get drinks by ingredients
+  - When ingredients are inputted by users, use those ingredients to get proper drinks
