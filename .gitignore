@@ -3,6 +3,8 @@ node_modules
 /dist
 .env
 /clientsrc/src/authConfig.js
+authConfig.js
+authConfig
 
 # local env files
 .env.local

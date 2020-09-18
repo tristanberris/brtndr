@@ -1,12 +1,13 @@
 <template>
-  <div class="row justify-content-center content pb-5">
+  <div>
+    <div class="row justify-content-center content pb-5">
       <div class="col-9">
         <ingredients></ingredients>
+      </div>
     </div>
-    <div class="row  content">
-      <div class="col-12">
-        <drinks></drinks>
-
+    <div class="row">
+      <div class="col-9">
+    <drinks v-for="Drinks in drinks" :drinkData="Drinks" :key="Drinks.id" class="pb-4 col-md-4 col-lg-3 col-sm-6"></drinks>
       </div>
     </div>
   </div>
@@ -20,11 +21,11 @@ import drinks from "../components/drinks.vue";
 
 export default {
   name: "Home",
-  mounted(){
-    this.$store.dispatch("getDrinks")
-    
+  mounted() {
+    let data = this.$store.dispatch("getDrinks");
+    this.$store.dispatch("getDrinks");
   },
-  computed:{
+  computed: {
     drinks() {
       return this.$store.state.drinks;
     }
@@ -40,6 +41,5 @@ export default {
 .content {
   background-color: #2a2e32;
   border-radius: 2%;
-  
 }
 </style>
