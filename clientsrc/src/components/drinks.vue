@@ -48,9 +48,7 @@ export default {
 .card {
   background-color: #7c7878;
 }
-.col-4:hover{
-    
-}
+
 .col-3{
     width: 100%;
 }
