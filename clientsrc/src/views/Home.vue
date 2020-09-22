@@ -7,6 +7,7 @@
     </div>
 
       <div class="row justify-content-center content pb-5">
+        
     <drinks v-for="Drinks in drinks" :drinkData="Drinks" :key="Drinks.id" class="pb-4 col-md-4 col-lg-3 col-sm-6"></drinks>
 
     </div>

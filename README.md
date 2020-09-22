@@ -36,3 +36,6 @@ This list will be a well-formatted, mobile-friendly page.
 
 - Learn how to get drinks by ingredients
   - When ingredients are inputted by users, use those ingredients to get proper drinks
+
+- Create a state in the store for 'activeDrinks'
+  - used to store the drinks that match the user's inputted ingredients
