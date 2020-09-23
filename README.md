@@ -30,6 +30,8 @@ This list will be a well-formatted, mobile-friendly page.
   - Mid-size: 4 cards per row
   - Phone-size: 3 cards per row
 
+- when user inputs ingredient, it's stored only on the front end, and referenced in the back end
+
 ### Back-end
 - Learn how to store back-end data as an array
   - How I intend to store the ingredients for each drink

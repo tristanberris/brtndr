@@ -13,11 +13,19 @@ let api = Axios.create({
 })
 export default new Vuex.Store({
   state: {
-    drinks:{}
+    drinks:{},
+    activeIngredients:[],
+    ingredients:[]
   },
   mutations: {
     setDrinks(state, drinks){
       state.drinks = drinks
+    },
+    setActiveIngredients(){
+      state.activeIngredients = activeIngredients
+    },
+    setIngredients(state, ingredients){
+      state.ingredients = ingredients
     }
   },
   actions: {
@@ -26,6 +34,25 @@ export default new Vuex.Store({
         let res = await api.get('drinks')
         console.log("getting drinks!" + res.data)
         commit('setDrinks', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getActiveIngredients({commit,dispatch}){
+      try {
+        let res = await api.get('activeIngredients')
+        console.log("getting ingredients!")
+        commit('setActiveIngredients', res.data)  
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async addIngredient({commit,dispatch}, ingredients){
+      try {
+        
+        commit('setIngredients', ingredients)
+        console.log("from store" + this.state.ingredients)
       } catch (error) {
         console.error(error)
       }
