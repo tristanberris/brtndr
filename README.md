@@ -33,9 +33,9 @@ This list will be a well-formatted, mobile-friendly page.
 ### Back-end
 - Learn how to store back-end data as an array
   - How I intend to store the ingredients for each drink
-
 - Learn how to get drinks by ingredients
   - When ingredients are inputted by users, use those ingredients to get proper drinks
-
 - Create a state in the store for 'activeDrinks'
   - used to store the drinks that match the user's inputted ingredients
+- Give the "search bar" functionality to store ingredient data
+  - Create search possibilities with available ingredients

@@ -41,6 +41,6 @@ export default {
 <style scoped>
 .content {
   background-color: #2a2e32;
-  border-radius: 2%;
+  /* border-radius: 2%; */
 }
 </style>
