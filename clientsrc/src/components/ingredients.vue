@@ -9,7 +9,7 @@
             list="browsers"
             name="browser"
             id="dropdownMenuButton"
-            v-model="newIngredient.ingredient"
+            v-model="newIngredient"
           />
           <datalist id="browsers">
             <option value="Vodka"></option>
@@ -33,18 +33,35 @@ export default {
   name: "ingredients",
   mounted(){
     console.log(this.$store.state.ingredients)
+    if(localStorage.getItem('ingredients')){
+      try {
+        this.ingredients = JSON.parse(localStorage.getItem('ingredients'))
+      } catch (error) {
+        localStorage.removeItem('ingredients')
+      }
+    }
     
   },
   data() {
     return {
-      newIngredient: []
+      ingredients: [],
+      newIngredient: null
     };
   },
   computed: {},
   methods: {
+    // addIngredient(){
+    //   this.$store.dispatch("addIngredient", this.newIngredient)
+    //   console.log("From component: " + this.$store.state.ingredients.ingredient)
+    // },
     addIngredient(){
-      this.$store.dispatch("addIngredient", this.newIngredient)
-      console.log("From component: " + this.$store.state.ingredients.ingredient)
+      this.ingredients.push(this.newIngredient)
+      this.newIngredient = ''
+      this.saveIngredients()
+    },
+    saveIngredients(){
+      const parsed = JSON.stringify(this.ingredients);
+      localStorage.setItem('ingredients', parsed)
     }
   },
   components: {}

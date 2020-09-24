@@ -11,6 +11,17 @@ let api = Axios.create({
   timeout: 3000,
   withCredentials: true
 })
+//reference code
+//NOTE this method will get the lists from local storage at the start of the app
+function _loadState() {
+  let data = JSON.parse(localStorage.getItem("bartender"));
+  if (data) {
+    data.ingredients = data.ingredients.map(l => new Ingredient(l));
+    state = data;
+  }
+}
+_loadState();
+
 export default new Vuex.Store({
   state: {
     drinks:{},
@@ -50,14 +61,31 @@ export default new Vuex.Store({
 
     async addIngredient({commit,dispatch}, ingredients){
       try {
-        
-        commit('setIngredients', ingredients)
-        console.log("from store" + this.state.ingredients)
+        let res = await api.post('ingredients', ingredients)
+        // commit('setIngredients', ingredients)
+        // console.log("from store" + this.state.ingredients)
+        return res.send(data)
       } catch (error) {
         console.error(error)
       }
     }
   },
   modules: {
+  },
+
+  //beginning use of store.js reference code
+  /**
+   * Provides access to application state data
+   */
+  get State() {
+    return state;
+  },
+  //NOTE call saveState everytime you change the state in any way
+  saveState() {
+    localStorage.setItem("bartender", JSON.stringify(state));
   }
+
 })
+const store = new Vuex.Store();
+
+//end of store.js reference code

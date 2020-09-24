@@ -1,7 +1,10 @@
 import express from "express";
 import BaseController from "../utils/BaseController";
 import { ingredientsService } from "../services/IngredientsService";
+import _store from "../../clientsrc/src/store/index.js"
 // import auth0Provider from "@bcwdev/auth0provider";
+
+
 
 export class IngredientsController extends BaseController {
   constructor() {
@@ -21,14 +24,24 @@ export class IngredientsController extends BaseController {
     }
 }
 
-  async create(req, res, next) {
+  // async create(req, res, next) {
+  //   try {
+  //     // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
+  //     // req.body.creatorEmail = req.userInfo.email;
+  //     let data = await ingredientsService.create(req.body)
+  //     res.send(req.body);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // }
+  
+  //beginning of reference code
+  async create(req, res,next){
     try {
-      // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
-      // req.body.creatorEmail = req.userInfo.email;
-      let data = await ingredientsService.create(req.body)
-      res.send(req.body);
+      let data  = await ingredientsService.create(req.body)
+      res.send(req.body)
     } catch (error) {
-      next(error);
+      next(error)
     }
   }
 }
