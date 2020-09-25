@@ -5,7 +5,7 @@
         <div class="input-group">
           <input
             class="form-control"
-            placeholder="input ingredient"
+            placeholder="Search Ingredient..."
             list="browsers"
             name="browser"
             id="dropdownMenuButton"
@@ -23,10 +23,14 @@
           </div>
         </div>
       </form>
-      <button class="tags" v-for="(ingredient,n) in ingredients" v-bind:key="n" @click="removeIngredient(n)">
-        <span class="ingredient ">{{ ingredient + " " }}</span>
+      <button
+        class="tags"
+        v-for="(ingredient,n) in ingredients"
+        v-bind:key="n"
+        @click="removeIngredient(n)"
+      >
+        <span class="ingredient">{{ ingredient + " " }}</span>
       </button>
-      
     </div>
   </div>
 </template>
@@ -37,16 +41,14 @@ export default {
   //created local storage referencing this link:
   ///https://vuejs.org/v2/cookbook/client-side-storage.html
   name: "ingredients",
-  mounted(){
-    console.log(this.$store.state.ingredients)
-    if(localStorage.getItem('ingredients')){
+  mounted() {
+    if (localStorage.getItem("ingredients")) {
       try {
-        this.ingredients = JSON.parse(localStorage.getItem('ingredients'))
+        this.ingredients = JSON.parse(localStorage.getItem("ingredients"));
       } catch (error) {
-        localStorage.removeItem('ingredients')
+        localStorage.removeItem("ingredients");
       }
     }
-    
   },
   data() {
     return {
@@ -60,21 +62,23 @@ export default {
     //   this.$store.dispatch("addIngredient", this.newIngredient)
     //   console.log("From component: " + this.$store.state.ingredients.ingredient)
     // },
-    addIngredient(){
-      if (!this.newIngredient){
-        return
+    addIngredient() {
+      if (!this.newIngredient) {
+        return;
       }
-      this.ingredients.push(this.newIngredient)
-      this.newIngredient = ''
-      this.saveIngredients()
+      this.ingredients.push(this.newIngredient);
+      this.newIngredient = "";
+      this.saveIngredients();
+      console.log(this.ingredients);
+      // this.$store.dispatch("findDrinks", this.ingredients)
     },
-    removeIngredient(x){
-      this.ingredients.splice(x,1)
-      this.saveIngredients()
+    removeIngredient(x) {
+      this.ingredients.splice(x, 1);
+      this.saveIngredients();
     },
-    saveIngredients(){
+    saveIngredients() {
       const parsed = JSON.stringify(this.ingredients);
-      localStorage.setItem('ingredients', parsed)
+      localStorage.setItem("ingredients", parsed);
     }
   },
   components: {}
@@ -87,26 +91,26 @@ export default {
   color: white;
   padding: 30px;
 }
-.tags{
+.tags {
   margin-top: 12px;
-	display: inline-block;
+  display: inline-block;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.603);
-	background-color: #7c7878;
-	-webkit-border-radius: 3px 4px 4px 3px;
-	-moz-border-radius: 3px 4px 4px 3px;
-	border-radius: 3px 4px 4px 3px;
-	border-left: 1px solid #7c7878;
-	/* This makes room for the triangle */
-	margin-right: 10px;
-	/* position: relative; */
-	color: white;
-	font-weight: 300;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 15px;
+  background-color: #7c7878;
+  -webkit-border-radius: 3px 4px 4px 3px;
+  -moz-border-radius: 3px 4px 4px 3px;
+  border-radius: 3px 4px 4px 3px;
+  border-left: 1px solid #7c7878;
+  /* This makes room for the triangle */
+  margin-right: 10px;
+  /* position: relative; */
+  color: white;
+  font-weight: 300;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 15px;
   line-height: 35px;
-	padding: 0 10px 0 10px;
+  padding: 0 10px 0 10px;
 }
-.tags:before{
+.tags:before {
   /* content: "";
 	position: absolute;
 	display: block;
@@ -119,7 +123,7 @@ export default {
 }
 /* Makes the circle */
 .tags:after {
-	/* content: "";
+  /* content: "";
 	background-color: white;
 	border-radius: 50%;
 	width: 5px;
@@ -128,7 +132,6 @@ export default {
 	position: absolute;
 	left: 30px;
   top: 58px; */
-  
 }
 .input-group {
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="row justify-content-center  pb-5 upper">
+    <div class="row justify-content-center upper">
       <div class="col-9">
         <ingredients></ingredients>
       </div>

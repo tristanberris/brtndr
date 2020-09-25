@@ -8,18 +8,35 @@ export class DrinksController extends BaseController {
     super("api/drinks");
     this.router
       .get("", this.getAll)
+      .findMatching("", this.findMatching)
       // NOTE: Beyond this point all routes require Authorization tokens (the user must be logged in)
       // .use(auth0Provider.getAuthorizedUserInfo)
       .post("", this.create)
   }
   async getAll(req, res, next) {
     try {
-        let data = await drinksService.getAll()
-        return res.send(data)
+      let data = await drinksService.getAll()
+      return res.send(data)
     } catch (error) {
-        next(error);
+      next(error);
     }
+  }
+  async findMatching(req,res,next){
+  try {
+    let data = await drinksService.findMatching()
+    return res.send(data)
+    } catch (error) {
+    next(error)
+  }
 }
+  // async getActive(req, res, next) {
+  //   try {
+  //     let data = await drinksService.getActive()
+  //     return res.send(data)
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 
   async create(req, res, next) {
     try {

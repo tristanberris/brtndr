@@ -10,6 +10,17 @@ class DrinksService {
           console.error(error);
         }
       }
+      //REFERENCE THIS WEBSITE:
+      ///https://docs.mongodb.com/manual/tutorial/query-arrays/
+
+      async findMatching(query = {data}){
+        let drinks = await dbContext.Drinks.find({
+          ingredients: [query]
+        })
+      }
+      // async getActive(data){
+      //   let data = await dbContext.Drinks.find
+      // }
   async findAll(query = {}) {
     let drinks = await dbContext.Drinks.find(query).populate(
       "creator",

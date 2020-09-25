@@ -25,16 +25,16 @@ _loadState();
 export default new Vuex.Store({
   state: {
     drinks:{},
-    activeIngredients:[],
+    // activeDrinks:{},
     ingredients:[]
   },
   mutations: {
     setDrinks(state, drinks){
       state.drinks = drinks
     },
-    setActiveIngredients(){
-      state.activeIngredients = activeIngredients
-    },
+    // setActiveDrinks(){
+    //   state.activeDrinks = activeDrinks
+    // },
     setIngredients(state, ingredients){
       state.ingredients = ingredients
     }
@@ -62,30 +62,27 @@ export default new Vuex.Store({
     async addIngredient({commit,dispatch}, ingredients){
       try {
         let res = await api.post('ingredients', ingredients)
-        // commit('setIngredients', ingredients)
-        // console.log("from store" + this.state.ingredients)
+        commit('setIngredients', ingredients)
+        console.log("from store" + this.state.ingredients)
         return res.send(data)
       } catch (error) {
         console.error(error)
       }
-    }
+    },
+    // async findDrinks({commit, dispatch}, ingredients){
+    //   try {
+    //     let res = await api.getActive('activeDrinks', ingredients)
+    //     commit('setActiveDrinks', res.data)
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // }
   },
   modules: {
   },
 
-  //beginning use of store.js reference code
-  /**
-   * Provides access to application state data
-   */
-  get State() {
-    return state;
-  },
-  //NOTE call saveState everytime you change the state in any way
-  saveState() {
-    localStorage.setItem("bartender", JSON.stringify(state));
-  }
+
 
 })
-const store = new Vuex.Store();
 
 //end of store.js reference code
