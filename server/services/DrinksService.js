@@ -17,6 +17,7 @@ class DrinksService {
         let drinks = await dbContext.Drinks.find({
           ingredients: [query]
         })
+        return drinks
       }
       // async getActive(data){
       //   let data = await dbContext.Drinks.find

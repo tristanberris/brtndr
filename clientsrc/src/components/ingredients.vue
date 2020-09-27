@@ -70,7 +70,7 @@ export default {
       this.newIngredient = "";
       this.saveIngredients();
       console.log(this.ingredients);
-      // this.$store.dispatch("findDrinks", this.ingredients)
+      this.$store.dispatch("getMatchingDrinks", this.ingredients)
     },
     removeIngredient(x) {
       this.ingredients.splice(x, 1);

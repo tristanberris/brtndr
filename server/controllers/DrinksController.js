@@ -8,9 +8,7 @@ export class DrinksController extends BaseController {
     super("api/drinks");
     this.router
       .get("", this.getAll)
-      .findMatching("", this.findMatching)
-      // NOTE: Beyond this point all routes require Authorization tokens (the user must be logged in)
-      // .use(auth0Provider.getAuthorizedUserInfo)
+      .get("/:ingredients", this.findMatching)
       .post("", this.create)
   }
   async getAll(req, res, next) {

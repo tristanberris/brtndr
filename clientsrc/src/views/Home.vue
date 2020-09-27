@@ -23,7 +23,7 @@ import drinks from "../components/drinks.vue";
 export default {
   name: "Home",
   mounted() {
-    let data = this.$store.dispatch("getDrinks");
+    // let data = this.$store.dispatch("getDrinks");
     this.$store.dispatch("getDrinks");
   },
   computed: {

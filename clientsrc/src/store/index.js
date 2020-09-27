@@ -26,15 +26,17 @@ export default new Vuex.Store({
   state: {
     drinks:{},
     // activeDrinks:{},
-    ingredients:[]
+    ingredients:[],
+    matchingDrinks:{}
+
   },
   mutations: {
     setDrinks(state, drinks){
       state.drinks = drinks
     },
-    // setActiveDrinks(){
-    //   state.activeDrinks = activeDrinks
-    // },
+    setMatchingDrinks(state, matchingDrinks){
+      state.matchingDrinks = matchingDrinks
+    },
     setIngredients(state, ingredients){
       state.ingredients = ingredients
     }
@@ -43,8 +45,19 @@ export default new Vuex.Store({
     async getDrinks({commit, dispatch}){
       try {
         let res = await api.get('drinks')
-        console.log("getting drinks!" + res.data)
+        // console.log("getting drinks!" + res.data)
         commit('setDrinks', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getMatchingDrinks({commit, dispatch}, ingredients){
+      try {
+        console.log("ingredients from store: " + ingredients)
+        let res = await api.get('drinks/ingredients', ingredients)
+        commit('setMatchingDrinks', res.data)
+        console.log("getting matching drinks!" + res.data)
+
       } catch (error) {
         console.error(error)
       }
@@ -59,16 +72,16 @@ export default new Vuex.Store({
       }
     },
 
-    async addIngredient({commit,dispatch}, ingredients){
-      try {
-        let res = await api.post('ingredients', ingredients)
-        commit('setIngredients', ingredients)
-        console.log("from store" + this.state.ingredients)
-        return res.send(data)
-      } catch (error) {
-        console.error(error)
-      }
-    },
+    // async addIngredient({commit,dispatch}, ingredients){
+    //   try {
+    //     let res = await api.post('ingredients', ingredients)
+    //     commit('setIngredients', ingredients)
+    //     console.log("from store" + this.state.ingredients)
+    //     return res.send(data)
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // },
     // async findDrinks({commit, dispatch}, ingredients){
     //   try {
     //     let res = await api.getActive('activeDrinks', ingredients)
