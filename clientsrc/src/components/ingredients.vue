@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      ingredients: [],
+      ingredients: {},
       newIngredient: null
     };
   },
