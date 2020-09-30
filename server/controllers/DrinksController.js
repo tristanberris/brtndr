@@ -21,7 +21,7 @@ export class DrinksController extends BaseController {
   }
   async findMatching(req,res,next){
   try {
-    let data = await drinksService.findMatching()
+    let data = await drinksService.findMatching(req.params.ingredients)
     return res.send(data)
     } catch (error) {
     next(error)

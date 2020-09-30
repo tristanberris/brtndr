@@ -13,7 +13,7 @@ class DrinksService {
       //REFERENCE THIS WEBSITE:
       ///https://docs.mongodb.com/manual/tutorial/query-arrays/
 
-      async findMatching(query = {data}){
+      async findMatching(query = {}){
         let drinks = await dbContext.Drinks.find({
           ingredients: [query]
         })

@@ -54,7 +54,7 @@ export default new Vuex.Store({
     async getMatchingDrinks({commit, dispatch}, ingredients){
       try {
         console.log("ingredients from store: " + ingredients)
-        let res = await api.get('drinks/ingredients', ingredients)
+        let res = await api.get(`drinks/${ingredients}`)
         commit('setMatchingDrinks', res.data)
         console.log("getting matching drinks!" + res.data)
 
