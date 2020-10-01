@@ -15,7 +15,7 @@ class DrinksService {
 
       async findMatching(query = {}){
         let drinks = await dbContext.Drinks.find({
-          ingredients: [query]
+          ingredients: { $all: [query] }
         })
         return drinks
       }
