@@ -41,6 +41,12 @@ export default {
   //created local storage referencing this link:
   ///https://vuejs.org/v2/cookbook/client-side-storage.html
   name: "ingredients",
+  props: {
+    // ingredients:{
+    //   type:Array,
+    //   required: true
+    // }
+  },
   mounted() {
     if (localStorage.getItem("ingredients")) {
       try {
