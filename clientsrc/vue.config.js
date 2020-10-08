@@ -1,4 +1,5 @@
 module.exports = {
   outputDir: "../client",
-  productionSourceMap: false
+  productionSourceMap: false,
+  publicPath: "/brtndr/"
 };

@@ -1,10 +1,12 @@
 .DS_Store
 node_modules
-/dist
+# /dist
 .env
 /clientsrc/src/authConfig.js
 authConfig.js
 authConfig
+.gitignore
+vue.config.js
 
 # local env files
 .env.local
