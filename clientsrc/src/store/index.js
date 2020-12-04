@@ -38,7 +38,7 @@ export default new Vuex.Store({
       state.matchingDrinks = matchingDrinks
     },
     setIngredients(state, ingredients){
-      state.ingredients = ingredients
+      state.ingredients.push(ingredients)
     }
   },
   actions: {
@@ -51,11 +51,15 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
+    //what we use for finding ingredients
+    ///another idea: use getAll and pass in ingredients, changing from get drinks/matching
     async getMatchingDrinks({commit, dispatch}, ingredients){
       try {
-        console.log(ingredients)
-        let res = await api.get(`drinks/${ingredients}`)
-        commit('setMatchingDrinks', res.data)
+        console.log("Ingredients from vue: " +ingredients)
+        commit('setIngredients', ingredients)
+        console.log(JSON.stringify(ingredients))
+        console.log("Ingredients from store " + this.state.ingredients)
+        // let res = await api.get('drinks', this.state.ingredients)
         console.log("getting matching drinks!" + res.data)
 
       } catch (error) {

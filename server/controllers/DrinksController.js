@@ -8,7 +8,7 @@ export class DrinksController extends BaseController {
     super("api/drinks");
     this.router
       .get("", this.getAll)
-      .get("/:ingredients", this.findMatching)
+      .get("/matching", this.findMatching)
       .post("", this.create)
   }
   async getAll(req, res, next) {
@@ -21,7 +21,7 @@ export class DrinksController extends BaseController {
   }
   async findMatching(req,res,next){
   try {
-    let data = await drinksService.findMatching(req.params.ingredients)
+    let data = await drinksService.findMatching()
     return res.send(data)
     } catch (error) {
     next(error)
