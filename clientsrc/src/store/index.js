@@ -58,7 +58,7 @@ export default new Vuex.Store({
         console.log("Ingredients from vue: " +ingredients)
         commit('setIngredients', ingredients)
         console.log(JSON.stringify(ingredients))
-        console.log("Ingredients from store " + this.state.ingredients)
+        // console.log("Ingredients from store " + this.state.ingredients)
         // let res = await api.get('drinks', this.state.ingredients)
         console.log("getting matching drinks!" + res.data)
 

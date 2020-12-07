@@ -74,8 +74,9 @@ export default {
       }
       this.ingredients.push(this.newIngredient);
       this.newIngredient = "";
+      this.Ingredients = [];
       this.saveIngredients();
-      console.log(this.ingredients);
+      console.log("From component file: " + JSON.stringify(this.ingredients));
       this.$store.dispatch("getMatchingDrinks", this.ingredients)
     },
     removeIngredient(x) {
